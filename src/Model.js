@@ -1,4 +1,4 @@
-//EVERYTHING BACK-END MODEL GOES HERE (FUNC, CONSTS)
+//EVERYTHING BACK-END MODEL GOES HERE (FUNC, CONSTS)  check
 
 import {getFighter, getFighterDetails} from "./fighterSource"
 import resolvePromise from "./resolvePromise";
