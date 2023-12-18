@@ -60,7 +60,7 @@ export default (props) => {
           </>
         )}
         {/*console.log(props.statsResults.issued.strikes.total.landed.roundAvg)*/}
-      </span>
+      </span> ///nigga
     );
   }
 
