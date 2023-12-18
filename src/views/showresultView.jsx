@@ -57,10 +57,13 @@ export default (props) => {
             <p>
               <>Submission Average/15 min</> {props.statsResults.issued.submissions.total.attempted.avg15min}
             </p>
+            <p>
+               FINAL SCORE
+            </p>
           </>
         )}
         {/*console.log(props.statsResults.issued.strikes.total.landed.roundAvg)*/}
-      </span> ///kakakakak
+      </span> 
     );
   }
 
