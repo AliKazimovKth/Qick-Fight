@@ -1,7 +1,8 @@
 import HomeSearchView from "../views/homeSearchView";
 import { observer } from "mobx-react-lite";
 import ShowFighter from "../views/showresultView";
-import AboutView from "../views/aboutView";
+import RankingView from "../views/rankingView";
+import NavbarView from "../views/navBarView";
 
 
 
@@ -18,6 +19,12 @@ export default observer(
         function searchFighterACB(){
             //Retrieve the dishes that fulfill the criteria.
             props.props.doSearch(props.props.searchParams);
+        }
+
+        function searchFavoriteFighterACB(){
+            console.log(props.props.currentFavoriteFighter);
+            return (props.props.currentFavoriteFighter);
+            //props.model.searchFavoriteFighter();
         }
 
         function clickHandler(dish){
@@ -44,18 +51,28 @@ export default observer(
 
     return (
         <div>
+            <div>
+                <NavbarView></NavbarView>
+            </div>
+        <div>
         <HomeSearchView 
         text={props.props.setSearchQuery.query} 
         changeText={changeTextInputACB} 
-        searchClicked={searchFighterACB}/>
-
-
-
+        searchClicked={searchFighterACB}
+        searchFavoriteFighter = {searchFavoriteFighterACB}
+        favoriteFighter = {props.props.currentFavoriteFighter}
+        />
+        
+        </div> 
         <div>
-       
       
+       {props.props.searchResultsPromiseState.data ? promiseNoData(props.props.searchResultsPromiseState)
+       ||<ShowFighter searchResults = {props.props.searchResultsPromiseState.data} 
+                      statsResults = {props.props.searchStatsPromiseState.data} 
+                      onDishClic = {clickHandler}
+                      />  
+                      : <RankingView></RankingView>}
       
-       {props.props.searchResultsPromiseState.data ? promiseNoData(props.props.searchResultsPromiseState)||<ShowFighter searchResults={props.props.searchResultsPromiseState.data} onDishClick={clickHandler}  />  : <AboutView></AboutView>}
       </div> 
       </div>
     );
