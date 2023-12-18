@@ -1,7 +1,7 @@
 
 import { getFighter, getFighterDetails, getFighterStats, getStats } from "./fighterSource";
 import resolvePromise from "./resolvePromise";
-
+//check
 
 export default {
     oflegends: "league",
